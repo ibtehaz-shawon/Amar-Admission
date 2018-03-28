@@ -141,7 +141,6 @@ page9_private_click.onclick = function()
 
 function getPrivateResult()  
 {//get result will be called from the button on result page
-    alert("getPrivateResult");
     var flag = checkNet();
     if(flag === true)
     {
@@ -161,8 +160,6 @@ function getPrivateResult()
 
 function save2(resultArray)
 {
-
-    alert("private University "+resutArray);
     privateArray = resultArray;
 }
 
@@ -172,7 +169,6 @@ page9_govt_click.onclick = function()
     page9_govt_click.style.backgroundColor = "#6591D5";
     
     getResult();
-    alert("haramjada "+ array);
     var page10_p = document.getElementById("page10_p");
 
     for(i =0; i< array.length;i++)
@@ -189,7 +185,6 @@ function getResult()
 {//get result will be called from the button on result page
 
     var flag = checkNet();
-    alert("getResult");
     if(flag === true)
     {
 
@@ -208,22 +203,8 @@ function getResult()
 
 function save(resultArray)
 {
-    alert(resultArray);
     array = resultArray;
-    alert("haramjada "+array);
 }
-
-
-
-// page18_a.onclick = function()
-// {
-//     var id = document.getElementById("page19_p");
-    
-//     for(i = 1; i <= saveCounter; i++)
-//     {
-//        id.innerHTML = id.innerHTML + "<br />" + localStorage.getItem(i);
-//     }
-// };
 
 
 page14_hscSubject.onclick = function()
@@ -243,7 +224,6 @@ page13_hscSubject.onclick = function()
 page12_hscSubject.onclick = function()
 {
     page12_hscSubject.style.backgroundColor = "#6591D5";
-    alert("am i here");
     science_subject("page12_bangla_gpa","page12_english_gpa","page12_physics_gpa","page12_chemistry_gpa","page12_maths_gpa","page12_biology_gpa","page12_fourth_subject");
 };
 
@@ -289,21 +269,18 @@ page1.onclick = function()
 //functions
 function disableFirstPage() 
 {
-    alert("disableFirstPage()");   
     PageJumping("page2");
     //activate scrolling after finishing.
     //disableScrolling(); 
 }
 
 function PageJumping(x)
-{  
-    alert("Jumping to "+x);
+{
     window.location.hash = x; 
 }
         
 function disableScrolling()
-{  
-    alert("disabling scrolling");
+{
     document.body.style.overflow = "hidden";
 }
 
@@ -328,7 +305,6 @@ function logIn(phoneId, passwordId)
 
     if (x === true) //call server connection method here;
     {
-        alert("connecting with server");
         var phonenumber = document.getElementById(phoneId).value;
         var password = document.getElementById(passwordId).value;
 
@@ -346,11 +322,8 @@ function signUp(nameId,phoneId, passwordId, confirmId)
 //check again.
 
     var phoneFlag = validatePhoneNumber(phoneId);
-    //userName = document.getElementById(nameID).value;
-    alert(passwordId);
     var x = validatePassword(passwordId);
     var y = validatePassword(confirmId);
-    alert(x);
 
     var passwordMatch = confirmPassword(passwordId,confirmId);
 
@@ -360,8 +333,6 @@ function signUp(nameId,phoneId, passwordId, confirmId)
         var phonenumber = document.getElementById(phoneId).value;
         var password = document.getElementById(passwordId).value;
         userName = name;
-        alert(userName+" your phonenumber is "+ phonenumber);
-        alert("put confirm ok/cancel button here to confirm sign up");
 
         //send data from here
         runSignUp(name, phonenumber, password);
@@ -378,13 +349,11 @@ function validatePhoneNumber(id) //done
 
     if((x.substring(0,2) !== "01") || (x.length !== 11))
     {
-       document.getElementById(id).style.border = "thick solid red"; 
-       alert("invalid phone number");
+       document.getElementById(id).style.border = "thick solid red";
        return false
     }
     else
     {
-       alert("phone number is "+x);
        return true;
     }
 }
@@ -393,7 +362,6 @@ function validatePhoneNumber(id) //done
 function validatePassword(id) //done
 {
     var x = document.getElementById(id).value;
-    alert(x);
 
     if(x.length < 6)
     {
@@ -404,12 +372,10 @@ function validatePassword(id) //done
     else if(x.length > 12)
     {
         document.getElementById(id).style.border = "thick solid red";
-        alert("password cannot be more than 12 words");
         return false;
     }
     else
     {
-        alert("password okay: "+x);
         return true;
     }
 }
@@ -421,12 +387,10 @@ function confirmPassword(id1,id2)//done
 
     if(password1 === password2)
     {
-        alert("password matched");
         return true;
     }
     else
     {
-        alert("password mismatched");
         document.getElementById(id1).style.border = "thick solid red";
         document.getElementById(id2).style.border = "thick solid red";
         return false;
@@ -453,10 +417,7 @@ function science_subject(subject1, subject2, subject3, subject4, subject5, subje
     var subject_4_grade = document.getElementById(subject4).value;
     var subject_5_grade = document.getElementById(subject5).value;
     var subject_6_grade = document.getElementById(subject6).value;
-    var fourth_Subject = document.getElementById(foruthSub).value;
-
-    alert(subject_1_grade);
-    alert(fourth_Subject);    
+    var fourth_Subject = document.getElementById(foruthSub).value;   
     var flag = scienceCheckGrade(subject_1_grade, subject_2_grade, subject_3_grade, subject_4_grade, subject_5_grade, subject_6_grade);
 
     if(flag === false)
@@ -521,8 +482,6 @@ function commerce_subject(subject1, subject2, subject3, subject4, subject5, subj
     var subject_6_grade = document.getElementById(subject6).value;
     var fourth_Subject = document.getElementById(foruthSub).value;
 
-    alert(subject_1_grade);
-    alert(fourth_Subject);    
     var flag = commerceCheckGrade(subject_1_grade, subject_2_grade, subject_3_grade, subject_4_grade, subject_5_grade, subject_6_grade);
 
     if(flag === false)
@@ -586,9 +545,6 @@ function arts_subject(subject1, subject2, subject3, subject4, subject5, subject6
     var subject_5_grade = document.getElementById(subject5).value;
     var subject_6_grade = document.getElementById(subject6).value;
     var fourth_Subject = document.getElementById(foruthSub).value;
-
-    alert(subject_1_grade);
-    alert(fourth_Subject);    
     var flag = artsCheckGrade(subject_1_grade, subject_2_grade, subject_3_grade, subject_4_grade, subject_5_grade, subject_6_grade);
 
     if(flag === false)
@@ -686,7 +642,6 @@ function commerceCheckGrade(subject1, subject2, subject3, subject4, subject5, su
 {
     var pageName = "page13";
     var flag = true;
-    alert(pageName);
     if(subject1 === "---")
     {
         document.getElementById(pageName+"_bangla_gpa").style.border = "thick solid red";
@@ -777,11 +732,7 @@ function artsCheckGrade(subject1, subject2, subject3, subject4, subject5, subjec
 
 function sendSubject(group,subject1, subject_1_grade, subject2, subject_2_grade, subject3, subject_3_grade, subject4, subject_4_grade, subject5, subject_5_grade, subject6, subject_6_grade)
 {
-    alert("Sending subject information");
     var flag = checkNet();
-    alert(subject1+" heres ");
-    alert(subject_1_grade);
-
     if(flag === true)
     {
         $.getJSON(
@@ -813,7 +764,6 @@ function sendSubject(group,subject1, subject_1_grade, subject2, subject_2_grade,
 
 function sendGroup(group)
 {
-    alert("Sending Group information");
     var flag = checkNet();
     if(flag === true)
     {
@@ -834,7 +784,6 @@ function jump(message)
 {
     if(message === "success")
     {
-        alert("jump "+message);
         PageJumping("page9");
     }
 }
@@ -860,7 +809,6 @@ function saveInfo(newArray)
 function get_student_info(name,passingYear, board, gpa,group, nextPage, currentPage)
 //ssc and hsc information get info.
 {
-    alert("get_student_info");
     var flag = true;
     
     var alertMessage = "";
@@ -920,8 +868,6 @@ function get_student_info(name,passingYear, board, gpa,group, nextPage, currentP
 
             globalGroup = valueGroup;
             hscGPA = valueGpa;
-            alert("global "+globalGroup);
-            alert("hscGPA "+hscGPA);
             runHSCExam(valueName, valuePassingYear, valueBoard,valueGpa, valueGroup, nextPage, currentPage);
         }
     }
@@ -954,8 +900,6 @@ function hscSuccess(message)
 {
     if(message === "success")
     {
-        alert("hscSuccess "+message);
-        alert(globalGroup +" kochur dim");
         if(globalGroup === "Science")
         {
             PageJumping("page12");
@@ -966,7 +910,6 @@ function hscSuccess(message)
         }
         else
         {
-            alert("hscSuccess "+message);
             PageJumping("page14");
         }
     }
@@ -981,7 +924,6 @@ function hscSuccess(message)
 function runSSCExam(name, passingYear, board, gpa,group, nextPage, currentPage) 
 //for ssc
 {
-    alert("running?");
     var flag = checkNet();
     if(flag === true)
     {   
@@ -1004,15 +946,12 @@ function runSSCExam(name, passingYear, board, gpa,group, nextPage, currentPage)
 
 function sscSuccess(message)
 {
-    alert("sscSuccess");
     if(message === "success")
     {
-        alert("sscSuccess "+message);
         PageJumping("page8");
     }
     else
     {
-        alert("sscSuccess "+message);
         PageJumping("page7");
     }
 }
@@ -1020,7 +959,6 @@ function sscSuccess(message)
 
 function runSignUp(name, phonenumber, password)
 {
-    alert("running LOGGING in");
     var flag = checkNet();
     if(flag === true)
     {
@@ -1045,22 +983,18 @@ function runSignUp(name, phonenumber, password)
 
 function afterSignUp(message)
 {
-    alert("afterSignUp");
     if(message === "success")
     {
-        alert("afterSignUp "+message);
         PageJumping("page3");
     }
     else
     {
-        alert("afterSignUp "+message);
         PageJumping("page4");
     }
 }
 
 function runLogIn(phonenumber,password)
 {
-    alert("running LOGGING in");
     var flag = checkNet();
     if(flag === true)
     {
@@ -1071,7 +1005,6 @@ function runLogIn(phonenumber,password)
             },
             nextPageLogIn
             );
-        alert("next page log in?");
     }
     else
     {
@@ -1083,16 +1016,12 @@ function runLogIn(phonenumber,password)
 
 function nextPageLogIn(message) //page jumping comes from here.
 {
-    alert("nextPageLogIn");
     if(message === "success")
     {
-        alert(message + " from logIn");
         PageJumping("page7");
     }
     else
     {
-        alert(message);
-        alert("log in failed dumb ass");
         PageJumping("page3_log_in");
     }
 }
