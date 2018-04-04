@@ -1,0 +1,14 @@
+certifi==2018.1.18
+chardet==3.0.4
+Django==1.11.12
+djangorestframework==3.8.0
+idna==2.6
+psycopg2==2.7.4
+psycopg2-binary==2.7.4
+pyparsing==2.2.0
+python-decouple==3.1
+pytz==2018.3
+requests==2.18.4
+six==1.11.0
+urllib3==1.22
+whitenoise==3.3.1
