@@ -107,3 +107,6 @@ venv.bak/
 
 .idea/
 Amar_Admission/__pycache__/
+temp.py
+testfile.json
+WordData.json
